@@ -38,7 +38,7 @@ console.log(student.showInfo);
 
 # this 在函数调用的时候表示的当前对象
 
-- 在对象的方法里使用this 表示当前对象，可以在对象的方法里获得对象的属性
+-  对象的方法。 在对象的方法里使用this 表示当前对象，可以在对象的方法里获得对象的属性
 
   ```javascript
   var student = {
@@ -51,7 +51,7 @@ console.log(student.showInfo);
   student.showInfo();  //我的名字是=张三我今年18岁
   ```
 
-- js 运行环境中有个全局的对象，window
+- 普通函数调用。  js 运行环境中有个全局的对象，window
 
   ```javascript
       
@@ -151,13 +151,14 @@ console.log(student.showInfo);
 
   - 普通的函数调用，函数被谁调用，this就是谁。
   
-- 构造函数的话，如果不用new操作符而直接调用，那即this指向window。用new操作符生成对象实例后，this就指向了新生成的对象。
+  - 构造函数的话，如果不用new操作符而直接调用，那即this指向window。用new操作符生成对象实例后，this就指向了新生成的对象。
   
   - 匿名函数或不处于任何对象中的函数指向window 。
   
   - 如果是call，apply等，指定的this是谁，就是谁。
   
   - `谁调用这个函数，this就指向谁`
+  
 
 # 测试题目
 
