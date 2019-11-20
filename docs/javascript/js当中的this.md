@@ -1,3 +1,17 @@
+# 为什么要有this
+
+## 什么是面向对象编程
+
+现实生活中任何事物都可以被抽象成对象，对象有属性和方法
+
+比如人，有属性，年龄，身高，有方法，吃饭，上课
+
+## 面向过程编程和面向对象编程的不同
+
+面向过程：吃早餐   ， 1. 喝牛奶 2 吃面包
+
+面向对象：1. 调用和牛奶的方法  2. 调用吃面包的方法
+
 # js中的对象
 
 对象有属性和方法
@@ -53,6 +67,7 @@ console.log(student.showInfo);
   ```javascript
       // 我们声明一个函数，就相当于给全局的window对象添加了一个方法,我们可以通过
       // test() 或者window.test()或者 this.test() 调用这个函数
+  	// 调用的时候，没有明确指出什么对象调用该方法的，都视为window 调用
   
       function test(){
           console.log('我是测试函数'+this);
@@ -109,13 +124,40 @@ console.log(student.showInfo);
   console.log(obj.a);       // 10    new绑定
   ```
 
+- 匿名函数的调用
+
+  ```javascript
+               
+        var a=2;
+          function test1(){
+              this.a=1;
+              return function () {
+                  console.log(this.a)
+              }
+          }
+          test1()();  // 1
+  
+          var a=2;
+          function test2(){
+              return function () {
+                  console.log(this.a)
+              }
+          }
+  
+          test2()();  //2
+  ```
+  
 - 小结
 
-  - 普通对象 Student
-  - 全局对象 window
-
-  - 动态改变this
-  - new 出来的对象
+  - 普通的函数调用，函数被谁调用，this就是谁。
+  
+- 构造函数的话，如果不用new操作符而直接调用，那即this指向window。用new操作符生成对象实例后，this就指向了新生成的对象。
+  
+  - 匿名函数或不处于任何对象中的函数指向window 。
+  
+  - 如果是call，apply等，指定的this是谁，就是谁。
+  
+  - `谁调用这个函数，this就指向谁`
 
 # 测试题目
 
@@ -133,8 +175,6 @@ var obj = {
 };
 obj.f();
 ```
-
-
 
 ```javascript
 var x = 10;
@@ -177,7 +217,31 @@ console.log(b.a);    // ?
 
 ```
 
+```javascript
+var o = {
+    a:10,
+    b:{
+        a:12,
+        fn:function(){
+            console.log(this.a); //12
+        }
+    }
+}
+o.b.fn();
+```
 
+```javascript
+var obj = {
+  foo: function () { console.log(this.bar) },
+  bar: 1
+};
+
+var foo = obj.foo;
+var bar = 2;
+
+obj.foo() // 1
+foo() // 2
+```
 
 
 
