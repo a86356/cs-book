@@ -159,3 +159,177 @@ console.log(student.showInfo);
   
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# this的练习题目
+
+```javascript
+var x = 10;
+var obj = {
+    x: 20,
+    f: function(){
+        console.log(this.x);        // ?
+        var foo = function(){ 
+            console.log(this.x);    
+            }
+        foo();                      // ?
+    }
+};
+obj.f();
+```
+
+```javascript
+var x = 10;
+var obj = {
+    x: 20,
+    f: function(){ console.log(this.x); }
+};
+var bar = obj.f;
+var obj2 = {
+    x: 30,
+    f: obj.f
+}
+obj.f();
+bar();
+obj2.f();
+```
+
+```javascript
+
+// 难 
+function foo(arg){
+    this.a = arg;
+    return this
+};
+
+var a = foo(1);
+var b = foo(10);
+
+console.log(a.a);    // ?
+console.log(b.a);    // ?
+
+// 分析
+// 1. 调用this.a=1;就相当于window.a=1,再返回window
+// 2. 把window赋值给window.a,window.a = window
+// 3. a.a 的时候，因为window.a.a 是undefined ,所以 undefined
+// --------------------
+// 1.window.a=10
+// 2.window.b = window
+// 3.window.b.a = window.a = 10
+
+```
+
+```javascript
+var o = {
+    a:10,
+    b:{
+        a:12,
+        fn:function(){
+            console.log(this.a); //12
+        }
+    }
+}
+o.b.fn();
+```
+
+```javascript
+var obj = {
+  foo: function () { console.log(this.bar) },
+  bar: 1
+};
+
+var foo = obj.foo;
+var bar = 2;
+
+obj.foo() // 1
+foo() // 2
+```
+
+```javascript
+	a=2;
+		function p1(){
+			var a=1;
+			alert(this.a);
+		}
+		p1();
+		// 1. a=2 相当于window.a=2;
+		// 2. p1()相当于 window.p1() 那么p1函数里面的this指向的就是 window.所以 this.a 就是  window.a
+
+
+		b=2;
+		function p2(){
+
+			b=1;
+			alert(this.b);
+		}
+		p2();
+		// 这个是布局变量和全局变量的问题，用var 声明的变量，作用域会在当前环境中，假如声明变量的时候没有加var 关键字
+		// 那么这个变量就是 全局的，b=2 b这个变量就是 全局变量，函数里面b=1 就是 给全局b赋值1 ，所以 window.b=1
+		// 那么 this.b就是1
+
+```
+
+```javascript
+var point = {
+			x : 0,
+			y : 0,
+			moveTo : function(x, y) {
+				// 内部函数
+				var moveX = function(x) {
+					this.x = x;
+				};
+				// 内部函数
+				var moveY = function(y) {
+					this.y = y;
+				};
+				moveX(x); // 这里是全局调用
+				moveY(y);
+			}
+		};
+		point.moveTo(1, 1);
+		console.log(point.x); // 0
+		console.log(point.y); // 0
+		console.log(x,y);
+```
+
+
+
+
+
+
+
+# 箭头函数
+
+箭头函数的this定义：**箭头函数的this是在定义函数时绑定的，不是在执行过程中绑定的。简单的说，函数在定义时，this就继承了定义函数的对象。**
+
+ ```javascript
+    var a=1;
+    var obj={
+        a:2,
+        show:function(){
+            return ()=>{console.log(this.a)} // 定义的时候所在的对象是obj
+        }
+    }   
+    
+    obj.show()();   //2
+ ```
+
