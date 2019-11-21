@@ -322,14 +322,14 @@ console.log(x,y);
 箭头函数的this定义：**箭头函数的this是在定义函数时绑定的，不是在执行过程中绑定的。简单的说，函数在定义时，this就继承了定义函数的对象。**
 
  ```javascript
-    var a=1;
-    var obj={
-        a:2,
-        show:function(){
-            return ()=>{console.log(this.a)} // 定义的时候所在的对象是obj
-        }
-    }   
-    
-    obj.show()();   //2
+var a=1;
+var obj={
+    a:2,
+    show:function(){
+        return ()=>{console.log(this.a)} // 定义的时候所在的对象是obj
+    }
+}   
+
+obj.show()();   //2
  ```
 
