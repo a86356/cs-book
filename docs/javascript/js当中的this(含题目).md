@@ -55,27 +55,27 @@ console.log(student.showInfo);
 
   ```javascript
       
-      // 我们声明一个变量，其实就是给全局的window对象添加了一个属性age，我们可以通过
-      // this.age 或者window.age获得这个属性的值  
-      var age=18;
-  	
-  	console.log(this==window)
-      console.log(window.age);    	
-      console.log(this.age); 
-      console.log(age)
+  // 我们声明一个变量，其实就是给全局的window对象添加了一个属性age，我们可以通过
+  // this.age 或者window.age获得这个属性的值  
+  var age=18;
+  
+  console.log(this==window)
+  console.log(window.age);    	
+  console.log(this.age); 
+  console.log(age)
   ```
 
   ```javascript
-      // 我们声明一个函数，就相当于给全局的window对象添加了一个方法,我们可以通过
-      // test() 或者window.test()或者 this.test() 调用这个函数
-  	// 调用的时候，没有明确指出什么对象调用该方法的，都视为window 调用
+  // 我们声明一个函数，就相当于给全局的window对象添加了一个方法,我们可以通过
+  // test() 或者window.test()或者 this.test() 调用这个函数
+  // 调用的时候，没有明确指出什么对象调用该方法的，都视为window 调用
   
-      function test(){
-          console.log('我是测试函数'+this);
-      }
-      test();
-      this.test();
-      window.test();
+  function test(){
+      console.log('我是测试函数'+this);
+  }
+  test();
+  this.test();
+  window.test();
   ```
 
   ```javascript
@@ -129,23 +129,23 @@ console.log(student.showInfo);
 
   ```javascript
                
-          var a=2;
-          function test1(){
-              this.a=1;
-              return function () {
-                  console.log(this.a)
-              }
-          }
-          test1()();  // 1
+  var a=2;
+  function test1(){
+      this.a=1;
+      return function () {
+          console.log(this.a)
+      }
+  }
+  test1()();  // 1
   
-          var a=2;
-          function test2(){
-              return function () {
-                  console.log(this.a)
-              }
-          }
+  var a=2;
+  function test2(){
+      return function () {
+          console.log(this.a)
+      }
+  }
   
-          test2()();  //2
+  test2()();  //2
   ```
   
 - 小结
@@ -265,50 +265,50 @@ foo() // 2
 ```
 
 ```javascript
-	a=2;
-		function p1(){
-			var a=1;
-			alert(this.a);
-		}
-		p1();
-		// 1. a=2 相当于window.a=2;
-		// 2. p1()相当于 window.p1() 那么p1函数里面的this指向的就是 window.所以 this.a 就是  window.a
+a=2;
+function p1(){
+    var a=1;
+    alert(this.a);
+}
+p1();
+// 1. a=2 相当于window.a=2;
+// 2. p1()相当于 window.p1() 那么p1函数里面的this指向的就是 window.所以 this.a 就是  window.a
 
 
-		b=2;
-		function p2(){
+b=2;
+function p2(){
 
-			b=1;
-			alert(this.b);
-		}
-		p2();
-		// 这个是布局变量和全局变量的问题，用var 声明的变量，作用域会在当前环境中，假如声明变量的时候没有加var 关键字
-		// 那么这个变量就是 全局的，b=2 b这个变量就是 全局变量，函数里面b=1 就是 给全局b赋值1 ，所以 window.b=1
-		// 那么 this.b就是1
+    b=1;
+    alert(this.b);
+}
+p2();
+// 这个是布局变量和全局变量的问题，用var 声明的变量，作用域会在当前环境中，假如声明变量的时候没有加var 关键字
+// 那么这个变量就是 全局的，b=2 b这个变量就是 全局变量，函数里面b=1 就是 给全局b赋值1 ，所以 window.b=1
+// 那么 this.b就是1
 
 ```
 
 ```javascript
 var point = {
-			x : 0,
-			y : 0,
-			moveTo : function(x, y) {
-				// 内部函数
-				var moveX = function(x) {
-					this.x = x;
-				};
-				// 内部函数
-				var moveY = function(y) {
-					this.y = y;
-				};
-				moveX(x); // 这里是全局调用
-				moveY(y);
-			}
-		};
-		point.moveTo(1, 1);
-		console.log(point.x); // 0
-		console.log(point.y); // 0
-		console.log(x,y);
+    x : 0,
+    y : 0,
+    moveTo : function(x, y) {
+        // 内部函数
+        var moveX = function(x) {
+            this.x = x;
+        };
+        // 内部函数
+        var moveY = function(y) {
+            this.y = y;
+        };
+        moveX(x); // 这里是全局调用
+        moveY(y);
+    }
+};
+point.moveTo(1, 1);
+console.log(point.x); // 0
+console.log(point.y); // 0
+console.log(x,y);
 ```
 
 
