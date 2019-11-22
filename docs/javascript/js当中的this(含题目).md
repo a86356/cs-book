@@ -313,7 +313,23 @@ console.log(x,y);
 
 
 
-
+```javascript
+<script>
+    var num = 10;
+    var obj = {
+        num:8,
+        inner: {
+            num: 6,
+            print: function () {
+                alert(this.num);
+            }
+        }
+    }
+    num = 888;
+    (obj.inner.print)(); //这个()()写法有点不太理解
+    (obj.inner.print = obj.inner.print)(); //888 这个点没有太理解
+</script>
+```
 
 
 
