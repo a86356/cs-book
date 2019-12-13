@@ -8,6 +8,8 @@
 
 
 
+
+
 # css简介
 
 解决什么问题。页面丑
@@ -1067,7 +1069,694 @@ input:focus{
 
 行者课堂  网址:cs1024.com，qq/微信:100000356
 
-# css 内联元素和块元素
+# css  块级元素
+
+通常，我们根据显示方式，把html元素分为块级元素，内联元素
+
+常见的块级元素
+
+```javascript
+address – 地址 
+blockquote – 块引用 
+dir – 目录列表 
+div – 常用块级容易，也是CSS layout的主要标签 
+dl – 定义列表 
+fieldset – form控制组 
+form – 交互表单 
+h1 – h6 标题 
+hr – 水平分隔线 
+menu – 菜单列表 
+ol – 有序表单 
+p – 段落 
+pre – 格式化文本 
+table – 表格 
+ul – 无序列表 
+li
+```
+
+
+
+- 块级元素会独占一行，
+- 块级元素可以设置宽高 
+- 块级元素可以设置margin，padding
+- 默认情况下宽度自动填满其父元素宽度 
+- 里面可以放内联元素或块级元素
+
+
+
+
+
+
+
+
+
+行者课堂  网址:cs1024.com，qq/微信:100000356
+
+# css 内联元素
+
+常见的内联元素
+
+```javca
+a，span，em，strong，i
+```
+
+特点
+
+- 内联元素(inline)不会独占一行，相邻的内联元素会排在同一行
+- 内联元素不可以设置宽高 
+- 内联元素可以设置margin，padding，但只在水平方向有效。
+- 其宽度随内容的变化而变化。 
+- 行内元素里面只能放行内元素
+
+- a 里面不能在放a标签
+- a是特殊情况，里面可以放块级元素，但是最好把a标签设置成块级元素
+
+
+
+
+
+
+
+
+
+
+
+行者课堂  网址:cs1024.com，qq/微信:100000356
+
+# css 行内块元素
+
+常见的行内块元素
+
+```javascript
+img,input
+```
+
+- 同时具有行内元素和块级元素的特点
+
+- 一行可以放多个 （行内的特点）
+
+- 可以设置宽高，margin,padding （块级元素的特点）
+
+- 行内块元素直接由间隙
+
+  
+
+
+
+
+
+
+
+
+
+
+
+行者课堂  网址:cs1024.com，qq/微信:100000356
+
+# css 显示模式的转换
+
+css 显示模式 
+
+- 块元素
+- 内联元素
+- 行内块元素
+
+显示模式
+
+- 块元素       block
+- 内联元素   inline
+- 行内块元素   inline-block
+
+
+
+
+
+
+
+# css qq导航栏项目
+
+项目地址  https://new.qq.com/ch2/movie 
+
+
+
+
+
+
+
+
+
+
+
+行者课堂  网址:cs1024.com，qq/微信:100000356
+
+# css 背景颜色
+
+ 设置背景颜色
+
+```javascript
+background-color:red;
+```
+
+-   文档https://www.w3school.com.cn/cssref/pr_text_color.asp 
+-   英文值： https://www.sioe.cn/yingyong/yanse-rgb-16/ 
+-   16进制 开发中最常用的
+-   rgb  
+
+
+
+
+
+
+
+
+
+
+
+
+
+行者课堂  网址:cs1024.com，qq/微信:100000356
+
+# css 背景图片
+
+语法
+
+```javascript
+div {
+    background-image: url("地址");
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+行者课堂  网址:cs1024.com，qq/微信:100000356
+
+# css 背景平铺
+
+语法
+
+```javascript
+ background-repeat: no-repeat;
+```
+
+- | 值        | 描述                                       |
+  | :-------- | :----------------------------------------- |
+  | repeat    | 默认。背景图像将在垂直方向和水平方向重复。 |
+  | repeat-x  | 背景图像将在水平方向重复。                 |
+  | repeat-y  | 背景图像将在垂直方向重复。                 |
+  | no-repeat | 背景图像将仅显示一次。                     |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+行者课堂  网址:cs1024.com，qq/微信:100000356
+
+# css 背景图位置
+
+设置背景图片的位置
+
+语法
+
+```javascript
+background-position :center center;
+```
+
+
+
+![mark](http://cdn.cs1024.com/images/20191129/TuFgFMWSLRoK.png?imageslim)
+
+ 文档 https://www.w3school.com.cn/cssref/pr_background-position.asp 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+行者课堂  网址:cs1024.com，qq/微信:100000356
+
+# css 项目雪碧图
+
+什么是雪碧图
+
+把一些小图标放在一张图片上，通过background-position去定位
+
+
+
+有什么用？
+
+用一张图片，减少资源，网络速度更快
+
+练习
+
+
+
+![mark](http://cdn.cs1024.com/images/20191129/0HXl8AirJPGj.png?imageslim)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+行者课堂  网址:cs1024.com，qq/微信:100000356
+
+# css 背景固定
+
+语法
+
+```javascript
+background-attachment:fixed
+```
+
+ https://www.w3school.com.cn/cssref/pr_background-attachment.asp 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+行者课堂  网址:cs1024.com，qq/微信:100000356
+
+# css 背景的复合属性
+
+语法
+
+```javascript
+background:背景颜色 图片地址 背景平铺 背景图像滚动 背景图片位置
+
+也可以只写 背景颜色，背景图片，后面可以省略
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+行者课堂  网址:cs1024.com，qq/微信:100000356
+
+# css 背景的半透明
+
+```javascript
+background:rgba(255,0,0,0.1);
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# css iconfont 字体图标项目
+
+iconfont：比css雪碧图更方便的字体图标
+
+
+
+项目：使用4个iconfont 的字体图标
+
+ https://www.iconfont.cn/ 
+
+
+
+可以设置字体的大小，颜色
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+行者课堂  网址:cs1024.com，qq/微信:100000356
+
+# css的层叠性
+
+层叠性
+
+对同一个选择器设置的同一个属性，后面的样式覆盖前面的样式
+
+
+
+css 样式冲突的生效原则
+
+css代码从上到下执行，越后面的样式会覆盖前面的样式
+
+可以看一下调试台，就可以看出
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+行者课堂  网址:cs1024.com，qq/微信:100000356
+
+# css_继承性
+
+继承： 就好比儿子会继承父亲的遗产
+
+css ：子元素会继承父元素某些的样式，某些样式不会被继承
+
+可以被继承的样式
+
+```javascript
+color,font-family,font-size,font-style,font-variant,font-weight,font,letter-spacing,line-height，text-align,text-indent,text-transform,word-spacing
+
+list-style-image,list-style-position,list-style-type,list-style
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+行者课堂  网址:cs1024.com，qq/微信:100000356
+
+# css 的优先级
+
+- 当使用不同的选择器对同一个元素设置相同的样式的时候，最终使用哪个样式，就由选择器的权重决定
+- 权重记忆口诀。从0开始，一个行内样式+1000，一个id+100，一个属性选择器/class或者伪类+10，一个元素名，或者伪元素+1
+
+```javascript
+01. *{}                         ====》0
+02. li{}                        ====》1(一个元素)
+03. li:first-line{}             ====》2(一个元素，一个伪元素)
+04. ul li {}                    ====》2（两个元素）
+05. ul ol+li{}                  ====》3（三个元素）
+06. h1+ *[rel=up] {}            ====》11（一个属性选择器，一个元素）
+07. ul ol li.red{}              ====》13（一个类，三个元素）
+08. li.red.level{}              ====》21（两个类，一个元素）
+09. style=""                    ====》1000(一个行内样式)
+10. p {}                        ====》1（一个元素）
+11. div p {}                    ====》2（两个元素）
+12. .sith {}                    ====》10（一个类）
+13. div p.sith{}                ====》12（一个类，两个元素）
+14. #sith{}                     ====》100（一个ID选择器）
+15. body #darkside .sith p {}   ====》112(1+100+10+1,一个Id选择器，一个类，两个元素)
+
+```
+
+- important
+
+  - 会无视上面的规则，表示最大的权重， 换句话说就是他的级别最高，下面的人都不能取代我 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+行者课堂  网址:cs1024.com，qq/微信:100000356
+
+# css 盒子模型介绍
+
+ 在一个文档中，每个元素都被表示为一个矩形的盒子 
+
+看网页的盒子模型有那些
+
+ http://www.cs1024.com/home/index 
+
+
+
+网页布局，就是摆放css盒子
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+行者课堂  网址:cs1024.com，qq/微信:100000356
+
+# css 盒子模型组成
+
+盒子的组成
+
+- 内容区域 （content） 
+
+- 内边距 (padding)
+
+- 边框 (border)
+
+- 外边距 (margin)
+
+打开chrome看看
+
+![mark](http://cdn.cs1024.com/images/20191129/4UYJUTiCNH3L.png?imageslim)
+
+
+
+写demo
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#  内联元素和块元素
 
 ## 什么内联元素
 
@@ -1098,12 +1787,11 @@ input:focus{
     - 块级元素可以设置宽高 
     - 块级元素可以设置margin，padding
 
-  - 默认情况下宽度自动填满其父元素宽度 
-
-    - 里面可以放内联元素或块级元素
-
-    
-
+    - 默认情况下宽度自动填满其父元素宽度 
+  - 里面可以放内联元素或块级元素
+  
+  
+  
 - 块去包含内联，而不会用内联去包含块元素。
 
 
@@ -1173,6 +1861,38 @@ textarea – 多行文本输入框 
 
 
 
+
+
+
+# css 的优先级
+
+- 当使用不同的选择器对同一个元素设置相同的样式的时候，最终使用哪个样式，就由选择器的权重决定
+- 权重记忆口诀。从0开始，一个行内样式+1000，一个id+100，一个属性选择器/class或者伪类+10，一个元素名，或者伪元素+1
+
+```javascript
+01. *{}                         ====》0
+02. li{}                        ====》1(一个元素)
+03. li:first-line{}             ====》2(一个元素，一个伪元素)
+04. ul li {}                    ====》2（两个元素）
+05. ul ol+li{}                  ====》3（三个元素）
+06. h1+ *[rel=up] {}            ====》11（一个属性选择器，一个元素）
+07. ul ol li.red{}              ====》13（一个类，三个元素）
+08. li.red.level{}              ====》21（两个类，一个元素）
+09. style=""                    ====》1000(一个行内样式)
+10. p {}                        ====》1（一个元素）
+11. div p {}                    ====》2（两个元素）
+12. .sith {}                    ====》10（一个类）
+13. div p.sith{}                ====》12（一个类，两个元素）
+14. #sith{}                     ====》100（一个ID选择器）
+15. body #darkside .sith p {}   ====》112(1+100+10+1,一个Id选择器，一个类，两个元素)
+
+```
+
+- important
+
+  - 会无视上面的规则，表示最大的权重， 换句话说就是他的级别最高，下面的人都不能取代我 
+
+    
 
 
 
@@ -1425,38 +2145,6 @@ p ~ span{}
 
 
 
-
-
-
-# css 的优先级
-
-- 当使用不同的选择器对同一个元素设置相同的样式的时候，最终使用哪个样式，就由选择器的权重决定
-- 权重记忆口诀。从0开始，一个行内样式+1000，一个id+100，一个属性选择器/class或者伪类+10，一个元素名，或者伪元素+1
-
-```javascript
-01. *{}                         ====》0
-02. li{}                        ====》1(一个元素)
-03. li:first-line{}             ====》2(一个元素，一个伪元素)
-04. ul li {}                    ====》2（两个元素）
-05. ul ol+li{}                  ====》3（三个元素）
-06. h1+ *[rel=up] {}            ====》11（一个属性选择器，一个元素）
-07. ul ol li.red{}              ====》13（一个类，三个元素）
-08. li.red.level{}              ====》21（两个类，一个元素）
-09. style=""                    ====》1000(一个行内样式)
-10. p {}                        ====》1（一个元素）
-11. div p {}                    ====》2（两个元素）
-12. .sith {}                    ====》10（一个类）
-13. div p.sith{}                ====》12（一个类，两个元素）
-14. #sith{}                     ====》100（一个ID选择器）
-15. body #darkside .sith p {}   ====》112(1+100+10+1,一个Id选择器，一个类，两个元素)
-
-```
-
-- important
-
-  - 会无视上面的规则，表示最大的权重， 换句话说就是他的级别最高，下面的人都不能取代我 
-
-    
 
 
 
@@ -1732,33 +2420,97 @@ css 认为每一个元素都包含在一个不可见的矩形的盒子里面，�
 
 
 
+
+
+
+
+
+
+行者课堂  网址:cs1024.com，qq/微信:100000356
+
 # css 边框
 
-先写一个box，再设置背景
+
+
+边框就是元素的边框。包含3个部分，边框宽度，边框样式，边框颜色
+
+ https://www.w3school.com.cn/cssref/pr_border.asp 
+
+
+
+先写一个div，
+
+```javascript
+div{
+    width: 100px;
+    height: 100px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: red;
+}
+```
+
+border-style   文档 https://www.w3school.com.cn/cssref/pr_border-style.asp 
+
+
+
+复合写法 （推荐）
 
 ```javascript
 .a{
-	border:1px solid red
+    border: 1px solid red;
 }
-
-//设置单边的边框
-.b{
-    border-top: 1px solid green;
-    border-left: 1px solid red;
-    border-right: 1px solid yellow;
-    border-bottom: 1px solid red;
-}
-
-// 边框的样式
-solid dashed dotted
-
-
-
 ```
 
 
 
+
+
+
+
+
+
+行者课堂  网址:cs1024.com，qq/微信:100000356
+
+# css 边框会影响盒子大小
+
+盒子的宽度= 左边border宽度+左边padding宽+内容区宽+右边的padding宽+右边的border的宽度
+
+盒子的高度 =  上边border高度+上边padding高+内容区高+下边的padding高+右边的border的高
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+行者课堂  网址:cs1024.com，qq/微信:100000356
+
 # css 内边距
+
+内容和盒子的靠太近了，用padding
 
 padding，盒子模型的内容区外面的部分
 
@@ -1772,15 +2524,13 @@ div{
 
 ```
 
-背景也会填充内边距，不仅仅用在内容区域
+- 背景也会填充内边距，不仅仅用在内容区域
 
-在父元素里面写一个子元素，分别设置他们的背景，子元素填充的部分只是内容区域
+- 在父元素里面写一个子元素，分别设置他们的背景，子元素填充的部分只是内容区域
 
-我们设置父元素的padding，可以看到2个背景，子元素的背景盖在父元素的背景上面
+- 我们设置父元素的padding，可以看到2个背景，子元素的背景盖在父元素的背景上面
 
-盒子的宽度= 左边border宽度+左边padding宽+内容区宽+右边的padding宽+右边的border的宽度
 
-盒子的高度 =  上边border高度+上边padding高+内容区高+下边的padding高+右边的border的高
 
 padding的简写
 
@@ -1789,8 +2539,53 @@ padding:10px 10px 10px 10px  // 上右下左 顺时针
 padding:10px 20px    // 上下10px 左右20px
 padding:10px 20px 30px  //// 上10px 左右20px 下30px 
 padding:10px;     // 上下左右都是 10px
-
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# css 写一个电商导航
+
+用width ,不合理
+
+用padding，合理
+
+![mark](http://cdn.cs1024.com/images/20191130/pwuBAwwN0KXR.png?imageslim)
+
+
+
+![mark](http://cdn.cs1024.com/images/20191201/kEjkikR97cIk.png?imageslim)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1803,41 +2598,101 @@ margin 外边距
 和内边距类似
 
 ```javascript
- margin:10px;
+margin-left 
+margin-right
+margin-bottom
+margin-top
+```
 
+
+
+```javascript
+margin:10px 10px 10px 10px  // 上右下左 顺时针
+margin:10px 20px    // 上下10px 左右20px
+margin:10px 20px 30px  //// 上10px 左右20px 下30px 
+margin:10px;     // 上下左右都是 10px
 ```
 
 页面的元素默认是靠左靠上放的
 
 放2个div盒子，用margin去设置他们之间的间隔
 
+​	
+
+- margin 可以设置成为负数
+
+-  margin 设置 auto 的话，平分左右的margin，通常用来做盒子的水平居中
 
 
-margin 可以设置成为负数
-
-margin 设置 auto 的话，平分左右的margin，通常用来做盒子的水平居中
 
 
 
 
 
-# css 垂直外边距重叠
 
-相邻的外边距，上面的设置的 margin-bottom,下面的设置的margin-top，会发生外边距重叠
+
+
+
+
+
+
+
+
+
+
+
+
+
+# css 利用box-sizing处理盒子
+
+计算宽度麻烦
+
+有没有办法，直接写width就是量出来的，再写border
+
+```javascript
+ .a{
+     /*原来的width 就是 内容区域的宽度*/
+     width:100px;
+     /*设置了 box-sizing: border-box;之后，width 就是内容区域+左右边框的宽度，高度同理*/
+     box-sizing: border-box;
+ }
+```
+
+推荐给body加上box-sizing: border-box;，全局生效。
+
+
+
+
+
+
+
+
+
+# css 相邻垂直外边距重叠
+
+相邻元素的外边距，上面的设置的 margin-bottom,下面的设置的margin-top，会发生外边距重叠
 
 取的是上下外边距的最大值，而不是上下外边距的和
 
-
+![mark](http://cdn.cs1024.com/images/20191201/oH7fhpXisHBW.png?imageslim)
 
 怎么解决？
 
-1.不要相邻即可
-
-2.给父元素设置border-top或者padding-top
 
 
+1.给一个盒子指定垂直方向的的margin
 
 
+
+
+
+
+
+
+
+
+
+# css 嵌套垂直外边距重叠
 
 嵌套的外边距重叠问题
 
@@ -1847,20 +2702,53 @@ margin 设置 auto 的话，平分左右的margin，通常用来做盒子的水�
 </div>
 
 设置了b的margin-top之后，而是把a顶了下来，
-
 a和b是相邻的状态
 a和b的上外边距发生重合，取大的值
 子元素的margin-top设置给父元素的margin-top
 
 ```
 
+
+
 如何解决？
 
-1.不要相邻即可
+- 父元素设置边框
+- 父元素设置内边距
+- 父元素加overflow:hidden
 
-2.给父元素设置border-top或者padding-top
 
-3.给父元素设置垂直内边距
+
+
+
+
+
+
+
+
+
+# css 关于居中
+
+盒子的居中
+
+margin:0 auto
+
+盒子里面的内容居中
+
+text-align:center;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1872,7 +2760,6 @@ a和b的上外边距发生重合，取大的值
 
 ```javascript
 div,p,ul,li
-
 ```
 
 会影响我们写代码，我们要取消这些默认样式
@@ -1892,15 +2779,6 @@ reset代码
 
 
 
-# css 内联元素盒子模型
-
-内联元素不能设置宽高，宽高是元素包含的内容的宽高
-
-内联可以设置水平和垂直方向的内边距，但是不会影响页面的布局
-
-设置边框，水平方向会移动，垂直方向不影响布局 
-
-设置外边距
 
 
 
@@ -1908,85 +2786,1008 @@ reset代码
 
 
 
-# css_display属性
-
-设置元素的显示方式
 
 
 
-设置元素的内联或者块元素
+
+
+
+
+
+
+# ps 切图教程
+
+
+
+- 拖动 空格
+
+- 标尺 ctrl+r ，并设置成像素
+
+- z 和鼠标滚轮 放大和缩小
+
+- c  切图
+
+- 导出web格式
+
+- 取颜色
+
+- 量尺寸
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# css 电商列表项目
+
+ https://market.m.taobao.com/app/tb-source-app/aiguangjiepc/content/index.html?spm=a21bo.2017.201870.2.5af911d9cxKkIb&contentId=2400000200682545313&scm=1007.12846.65991.0&pvid=58ad6936-c276-4bcf-aa8c-7ab19fe21e8b 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# css 网易新闻模块项目
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# css 圆角
+
+盒子模型默认都是矩形的，我们想要圆角
+
+
+
+![mark](http://cdn.cs1024.com/images/20191130/yK6OCsTzHj8z.png?imageslim)
+
+
+
+ https://www.w3school.com.cn/tiy/t.asp?f=css3_border-radius 
+
+语法
 
 ```javascript
-display: none;        // 元素隐藏
-display: inline-block; // 行内块级元素，可以让元素变成块，可以设置宽高，同时可以在同一行显示
-display: block;        // 
-display: inline;
-
+border-radius:11px; // px或者百分比
 ```
 
-- 内联元素转块元素
-  - 比如把a标签设置宽度和高度
-- 块元素转内联元素
-  - 把div 设置成内联，（仅做演示，不使用）
-- 把内联元素转成行内块元素
-  - a设置display:inline-block
+- 画一个圆
 
 
 
-display:none和visibility:hidden的区别
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# css 盒子模型阴影
+
+语法
+
+```
+box-shadow: h-shadow v-shadow blur spread color inset;
+```
+
+![mark](http://cdn.cs1024.com/images/20191130/upokmVEk8f9u.png?imageslim)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# css 文字阴影
+
+语法
 
 ```javascript
-visibility:hidden  // 元素是隐藏的
-visibility:visible // 默认可见的
-
+text-shadow: h-shadow v-shadow blur color;
 ```
 
+![mark](http://cdn.cs1024.com/images/20191130/KcOl3Tt8wShn.png?imageslim)
 
 
 
 
-# css overflow
 
 
 
-当子元素的大小超过父元素，就会发生溢出
+
+
+
+
+
+
+
+
+# css 3种网页的布局方式
+
+网页布局的3种方式
+
+-  文档流 默认布局
+  - html标签正常的显示状态
+- 浮动布局
+  - 对盒子进行左右浮动，来完成布局 ，文档流无法完成的时候，可以用浮动
+- 定位
+  - 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# css浮动是什么
+
+ **浮动的框可以向左或向右移动，直到它的外边缘碰到包含框或另一个浮动框的边框为止。** 
+
+语法
 
 ```javascript
-<!doctype html>
-<html lang="en">
-<head>
-    <style>
-        .a{
-            width: 300px;
-            height: 300px;
-            background: red;
-        }
-        .b{
-            width: 1000px;
-            height: 100px;
-            background: green;
-        }
-    </style>
-</head>
-<body>
-    <div class='a'>
-        <div class="b"></div>
-    </div>
-<script>
-</script>
-</body>
-</html>
-
+float: left
 ```
 
-overflow可以设置溢出的处理方式
+![mark](http://cdn.cs1024.com/images/20191130/JPzr0SgkTrdM.png?imageslim)
+
+
+
+
+
+
+
+
+
+
+
+
+
+# css 浮动元素的特点
+
+- 脱离文档流
+
+  我们之前看过，网页是一层层的，我们看到的是最上层的，但是设置了浮动之后，浮动的元素会脱离原来的文档流，浮在文档流上面，且不占位置
+
+- 浮动的元素会在一行显示，放不下了就换行
+
+- 浮动的元素具有行内块元素的特性
+
+- 浮动的元素假如没有宽度，他的元素大小是根据内容决定的
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# css 浮动注意点
+
+-  一般情况下，父元素中有一个子元素浮动了，其他的也应该浮动
+  - 结论：浮动的盒子只会影响后面的标准流，不会影响前面的标准流
+
+
+
+
+
+
+
+# css 为什么要清除浮动
+
+之前浮动的子元素的父元素都是设置了高度的，
+
+
+
+
+
+
+
+
+
+现实情况下父元素高度不固定，或者是由子元素决定的。
+
+比如  https://www.tmall.com/?spm=a21bo.2017.201859.1.5af911d9KbqnVH 的商品列表
+
+
+
+假如没有设置父元素的高度会怎么样？
+
+没有设置高度的话，父元素的高度就是 0，下面的内容就上来了。
+
+这个就是子元素浮动，不占位置了，会造成父元素高度是0，下面的元素就上来了，
+
+所以我们需要清除浮动，所谓清除浮动，就是清除浮动带来的影响，这个影响就是父元素的高度变成了0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# css 如何清除浮动- 方法1
+
+- 额外标签法
+- 选择器：{ clear :both}  实际开发用both
+
+ https://www.w3school.com.cn/cssref/pr_class_clear.asp 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#  css 如何清除浮动 - 方法2
+
+父级添加overflow：hidden 方法
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# css 如何清除浮动 - 方法3
+
+伪元素的方法 （推荐使用）
 
 ```javascript
-overflow:hidden
-overflow:visible
-overflow:scroll
-overflow:auto
+.clearfix:after {
+    /*设置子元素内容为空*/
+    content: '';
+    display: block;
+    height: 0;
+    visibility: hidden;
+    clear: both;
+}
+.clearfix{
+    /*兼容ie6*/
+    *zoom: 1;
+}
+```
 
+
+
+
+
+
+
+
+
+# css 浮动 导航布局项目
+
+
+
+![mark](http://cdn.cs1024.com/images/20191203/H6MxaaUwxnzK.png?imageslim)
+
+用浮动实现上面的布局，不考虑小图标
+
+
+
+
+
+# css 浮动 商品列表布局项目
+
+ https://market.m.taobao.com/app/tb-source-app/aiguangjiepc/content/index.html?spm=a21bo.2017.201870.2.5af911d9cxKkIb&contentId=2400000200682545313&scm=1007.12846.65991.0&pvid=58ad6936-c276-4bcf-aa8c-7ab19fe21e8b 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# css 定位
+
+css 定位是3种布局方式的一种，其他两种是2
+
+
+
+为什么需要定位?
+
+完成一些文档流和浮动无法完成的布局，比如固定在页面的回到顶部
+
+ https://www.taobao.com/ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# css 定位的组成
+
+定位:就是 将css盒子定在某个地方，所谓定位就是在摆放盒子。
+
+画图，画个矩形，用diagram  模拟定位
+
+定位 = 定位模式+偏移
+
+定位模式就是 说你采用哪种模式定位，偏移就是该元素的最终位置
+
+
+
+定位模式
+
+通过css 的 position 属性来设置，他的值有4个
+
+- static  静态定位
+- relative 相对定位
+- absolute  绝对定位
+- fixed 固定定位
+
+
+
+偏移
+
+盒子的最终的位置，他的值有top,left,bottom,right 4个属性
+
+- top   top：60px     顶部偏移量，定位的元素相对于父元素上边线的距离
+- left   left：60px     顶部偏移量，定位的元素相对于父元素左边线的距离
+- right   right：60px     顶部偏移量，定位的元素相对于父元素右边线的距离
+- bottom  bottom：60px     顶部偏移量，定位的元素相对于父元素下边线的距离
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# css 相对定位
+
+static 静态定位 （文档流定位，了解即可）
+
+```javascript
+选择器 {postition:static}
+```
+
+- 没有偏移
+
+
+
+
+
+relative  相对定位
+
+布局方式是相对于他自己本身的定位，偏移也是相对于自己本身的偏移
+
+语法
+
+```javascript
+选择器 {postition:relative}
+```
+
+偏移
+
+- 以元素原来的位置偏移的 （画图解释）
+- 原来在文档流的位置仍然占有，后面的盒子仍然用标准流的方式对待他 （图解）
+
+
+
+最大的作用
+
+实际开发中, 给绝对定位的元素当父元素的
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# css 绝对定位 
+
+绝对定位元素在偏移的时候，他是相对于他的祖先元素来定位的
+
+语法
+
+```javascript
+选择器 {postition:absolute}
+```
+
+特点
+
+- 如果没有**祖先元素**或者**祖先元素没有定位**，他就以浏览器（html，body）为准定位 （图解）
+
+- 当父元素有定位的话（相对，绝对，固定）。绝对定位的偏移是以最近一级有定位的祖先元素为参考的。（图解）
+- 绝对定位不再占有原来的位置 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# css 轮播图项目
+
+父相子绝： 父元素用相对定位，子元素用绝对定位
+
+
+
+
+
+模拟轮播图
+
+ https://www.taobao.com/ 
+
+用浮动做左右按钮的话，因为浮动只会影响浮动元素后面的元素，假如图片在前面就不行了。
+
+- 子元素绝对定位，不会占有任何位置
+
+
+
+
+
+
+
+
+
+
+
+
+
+# 
+
+
+
+
+
+
+
+
+
+
+
+# css 固定定位
+
+可以固定到浏览器可视区的位置，主要使用场景：可以在浏览器页面滚动时元素的位置不会改变。
+
+淘宝例子
+
+语法
+
+```javascript
+选择器{position:fixed}
+```
+
+- 以浏览器的可视窗口为参考点移动元素 （举例子）
+- 不随着滚动条滚动而滚动
+- 不再占有原来的位置
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# css 固定定位的小例子
+
+固定一个右边的广告位到内容区的右边
+
+ https://www.taobao.com/ 
+
+
+
+做法 ，2 步骤
+
+```javascript
+.a{
+    position: fixed;
+    left: 50%;
+    margin-left: 500px;
+}
+```
+
+- 固定定位盒子left:50%,到可视区的中间
+- 让固定定位的盒子margin-left:中间内容去的一半
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# css 定位的叠放顺序
+
+盒子重叠的问题
+
+可以使用z-index控制盒子的先后次序 (z 轴)
+
+
+
+![mark](http://cdn.cs1024.com/images/20191203/y0TTd0UnTGc7.png?imageslim)
+
+
+
+语法
+
+```javascript
+选择器{z-index:1}
+```
+
+- 数值可以是正整数，负整数，数值越大，盒子越在上面，默认是auto  （图解，写demo） - 
+
+- 如果属性值相同，没设置就是auto，按照书写顺序，后来居上 
+- 只有定位（相对定位，固定定位，绝对定位）的盒子才能设置z-index属性
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# css 定位的绝对居中
+
+加了绝对定位的盒子，不能通过margin:0 auto;水平居中的，但是可以通过下面的方式实现水平居中和垂直居中
+
+- left 50%
+- margin-left:-自身宽度的一半
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# css 定位的一些特性
+
+- 行内元素添加了绝对或者固定定位，可以直接设置宽度和高度
+- 块元素添加绝对或者固定定位，如果不设置宽度或者高度，默认大小是内容的大小
+
+- 下面的左浮动的文字不会压住上面的元素，而是到右边去了。定位（绝对定位，固定定位）的话，会覆盖到上面的元素。 因为浮动产生的最初目的是左文字环绕效果的。 https://www.w3school.com.cn/tiy/t.asp?f=csse_float 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# css 元素的显示和隐藏
+
+display
+
+ https://www.w3school.com.cn/cssref/pr_class_display.asp 
+
+- display:none  之后，不再占有原来的位置
+
+visibility
+
+ https://www.w3school.com.cn/cssref/pr_class_visibility.asp 
+
+visiblity：hidden 之后，继续占有原来的位置
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# css overflow溢出隐藏
+
+overflow 就指定了内容区发生溢出，(包括高度，宽度的溢出)，怎么处理
+
+![mark](http://cdn.cs1024.com/images/20191203/qynz3KF5cpPO.png?imageslim)
+
+ https://www.w3school.com.cn/cssref/pr_pos_overflow.asp 
+
+
+
+
+
+
+
+
+
+
+
+# css 画一个三角形
+
+ https://www.mi.com/ 
+
+```javascript
+.a{
+    width: 0;
+    height: 0;
+    border: 100px solid transparent;
+
+    border-left-color:  red;
+    /*border-right: 100px solid green;*/
+    /*border-bottom: 100px solid blue;*/
+    /*border-top: 100px solid burlywood;*/
+}
+```
+
+
+
+
+
+# css vertical align的应用
+
+实现图片或者行内块元素和文字的垂直对齐
+
+语法
+
+ https://www.w3school.com.cn/css/pr_pos_vertical-align.asp 
+
+![mark](http://cdn.cs1024.com/images/20191203/4r2gf9j9WOM1.png?imageslim)
+
+可以让文字和图片的这几条线对齐
+
+
+
+默认图片和文字的对齐方式，基线对齐
+
+![mark](http://cdn.cs1024.com/images/20191203/abbV2azhOn1g.png?imageslim)
+
+改img的veriical -align ：bottom 和底线对齐
+
+
+
+
+
+
+
+
+
+
+
+
+
+# css 文本省略号
+
+单行
+
+ https://www.jd.com/ 
+
+```javascript
+.a{
+    //https://www.w3school.com.cn/cssref/pr_text_white-space.asp
+    // white-space :normal 文字自动换行
+    white-space: nowrap;  // 文本不换行
+    overflow: hidden;     // 溢出隐藏
+    text-overflow:ellipsis; // 文字用省略号替换溢出的部分
+}
+```
+
+多行
+
+```javascript
+.b{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    width: 50px;
+}
 ```
 
 
@@ -2001,98 +3802,6 @@ overflow:auto
 
 
 
-=================================================
-
-# js基础
-
-我们学的第一门语言，html和css都不算正式的语言
-
-javascript语言是什么？
-
-是一门编程语言
-
-
-
-语言
-
-- 人与人对话的方式，包括中文和英文，对话必须用相同的语言，才能正确沟通。比如我说中文，你说英文，我们就沟通不了
-- 编程语言：人与计算机对话，通过编程语言操作计算机，而不能通过人的语言
-- 中文，英文，编程语言，没本质区别，都是语言，语法不同而已。
-
-计算机语言的发展历史
-
-- 计算机中存储的都是0和1，不管是文本，视频，图片， （机器语言）
-- 汇编 （低级语言）
-- c ，c++,java,javascript等等各种语言 （高级语言）
-
-## 诞生
-
- 1990年底，欧洲核能研究组织（CERN）科学家Tim Berners-Lee，在全世界最大的电脑网络——互联网的基础上，发明了万维网（World Wide Web），从此可以在网上浏览网页文件。最早的网页只能在操作系统的终端里浏览，也就是说只能使用命令行操作，网页都是在字符窗口中显示，这当然非常不方便。 
-
-
-
- 1994年10月，NCSA的一个主要程序员Marc Andreessen联合风险投资家Jim Clark，成立了Mosaic通信公司（Mosaic Communications），不久后改名为Netscape。这家公司的方向，就是在Mosaic的基础上，开发面向普通用户的新一代的浏览器Netscape Navigator。 （ 网景 ）
-
-
-
-1994年12月，Navigator发布了1.0版，市场份额一举超过90%。
-
-Netscape公司很快发现，Navigator浏览器需要一种可以嵌入网页的脚本语言，用来控制浏览器行为。当时，网速很慢而且上网费很贵，有些操作不宜在服务器端完成。比如，如果用户忘记填写“用户名”，就点了“发送”按钮，到服务器再发现这一点就有点太晚了，最好能在用户发出数据之前，就告诉用户“请填写xx栏”。这就需要在网页中嵌入小程序，让浏览器检查每一栏是否都填写了。
-
-管理层对这种浏览器脚本语言的设想是：功能不需要太强，语法较为简单，容易学习和部署。那一年，正逢Java语言开始推向市场，Netscape公司决定，脚本语言的语法要接近Java，并且可以支持Java程序。这些设想直接排除了使用现存语言，比如perl、python和TCL。
-
-1995年，Netscape公司雇佣了程序员Brendan Eich开发这种网页脚本语言。Brendan Eich有很强的函数式编程背景，希望以Scheme语言（函数式语言鼻祖LISP语言的一种方言）为蓝本，实现这种新语言。
-
-1995年5月，Brendan Eich只用了10天，就设计完成了这种语言的第一版。它是一个大杂烩，语法有多个来源：
-
-- 基本语法：借鉴C语言和Java语言。
-- 数据结构：借鉴Java语言，包括将值分成原始值和对象两大类。
-- 函数的用法：借鉴Scheme语言和Awk语言，将函数当作第一等公民，并引入闭包。
-- 原型继承模型：借鉴Self语言（Smalltalk的一种变种）。
-- 正则表达式：借鉴Perl语言。
-- 字符串和数组处理：借鉴Python语言。
-
-为了保持简单，这种脚本语言缺少一些关键的功能，比如块级作用域、模块、子类型（subtyping）等等，但是可以利用现有功能找出解决办法。这种功能的不足，直接导致了后来JavaScript的一个显著特点：对于其他语言，你需要学习语言的各种功能，而对于JavaScript，你常常需要学习各种解决问题的模式。而且由于来源多样，从一开始就注定，JavaScript的编程风格是函数式编程和面向对象编程的一种混合体。
-
-Netscape公司的这种浏览器脚本语言，最初名字叫做Mocha，1995年9月改为LiveScript。12月，Netscape公司与Sun公司（Java语言的发明者和所有者）达成协议，后者允许将这种语言叫做JavaScript。这样一来，Netscape公司可以借助Java语言的声势，而Sun公司则将自己的影响力扩展到了浏览器。
-
-微软研发了ie浏览器 ，出来一门Jscrpt语言
-
-于是有2个版本了，一个是javascript和jscript
-
-后来网景公司把javascript交给了欧洲 国际性会员制度的信息和电信标准组织 ，这个组织根据javascript制定了一套标准ECMAscript
-
-
-
-那不同的浏览器厂家拿到这套标准之后，去做实现，实现也是不同的。造成了兼容性的一些问题
-
-
-
-比如chrome 通过v8引擎去实现ECMAscirpt 标准，v8 引擎速度很快，所以你打开qq 官网，chrome比ie是快一点的。
-
-ECMAscript 标准
-
-javascript   实现
-
-但是javascript包括更多，他包括ECMAscript 和dom，bom。
-
-
-
-dom 文档对象模型，让我们可以操作网页
-
-bom 浏览器模型，让我们可以操作浏览器
-
-
-
-
-
-## 学习目标
-
-es(ECMAscript)  语法
-
-dom
-
-bom
 
 
 
@@ -2107,6 +3816,165 @@ bom
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## BFC 概念
+
+Formatting context(格式化上下文) 是 W3C CSS2.1 规范中的一个概念。它是页面中的一块渲染区域，并且有一套渲染规则，它决定了其子元素将如何定位，以及和其他元素的关系和相互作用。
+
+
+
+那么 BFC 是什么呢？
+
+BFC 即 Block Formatting Contexts (块级格式化上下文)，它属于上述定位方案的普通流。
+
+
+
+官方解释 很深奥
+
+一个块格式化上下文（block formatting context） 是Web页面的可视化CSS渲染出的一部分。它是块级盒布局出现的区域，也是浮动层元素进行交互的区域。
+ 一个块格式化上下文由以下之一创建：
+
+- 根元素或其它包含它的元素
+- 浮动元素 (元素的 float 不是 none)
+- 绝对定位元素 (元素具有 position 为 absolute 或 fixed)
+- 内联块 (元素具有 display: inline-block)
+- 表格单元格 (元素具有 display: table-cell，HTML表格单元格默认属性)
+- 表格标题 (元素具有 display: table-caption, HTML表格标题默认属性)
+- 具有overflow 且值不是 visible 的块元素，
+- display: flow-root
+- column-span: all 应当总是会创建一个新的格式化上下文，即便具有 column-span: all 的元素并不被包裹在一个多列容器中。
+- 一个块格式化上下文包括创建它的元素内部所有内容，除了被包含于创建新的块级格式化上下文的后代元素内的元素。
+
+块格式化上下文对于定位 (参见 float) 与清除浮动 (参见 clear) 很重要。定位和清除浮动的样式规则只适用于处于同一块格式化上下文内的元素。浮动不会影响其它块格式化上下文中元素的布局，并且清除浮动只能清除同一块格式化上下文中在它前面的元素的浮动。
+
+
+
+**具有 BFC 特性的元素可以看作是隔离了的独立容器，容器里面的元素不会在布局上影响到外面的元素，并且 BFC 具有普通容器所没有的一些特性。**
+
+**通俗一点来讲，可以把 BFC 理解为一个封闭的大箱子，箱子内部的元素无论如何翻江倒海，都不会影响到外部。反之，里面元素也不会影响外面的**
+
+
+
+## 触发 BFC
+
+- body 根元素
+- 浮动元素：float 除 none 以外的值
+- 绝对定位元素：position (absolute、fixed)
+- display 为 inline-block、table-cells、flex
+- overflow 除了 visible 以外的值 (hidden、auto、scroll)
+
+
+
+## BFC 特性及应用
+
+- **同一个 BFC 下外边距会发生折叠** 
+
+  ```javascript
+  <head>
+  div{
+      width: 100px;
+      height: 100px;
+      background: lightblue;
+      margin: 100px;
+  }
+  </head>
+  <body>
+      <div></div>
+      <div></div>
+  </body>
+  
+  ```
+
+  ![mark](http://cdn.cs1024.com/images/20191202/pdOnIhWQDyx6.png?imageslim)
+
+  从效果上看，因为两个 div 元素都处于同一个 BFC 容器下 (这里指 body 元素) 所以第一个 div 的下边距和第二个 div 的上边距发生了重叠，所以两个盒子之间距离只有 100px，而不是 200px。
+
+  
+
+  
+
+  首先这不是 CSS 的 bug，我们可以理解为一种规范，**如果想要避免外边距的重叠，可以将其放在不同的 BFC 容器中。**
+
+  ```javascript
+  <div class="container">
+      <p></p>
+  </div>
+  <div class="container">
+      <p></p>
+  </div>
+  .container {
+      overflow: hidden;
+  }
+  p {
+      width: 100px;
+      height: 100px;
+      background: lightblue;
+      margin: 100px;
+  }
+  ```
+
+  这时候，两个盒子边距就变成了 200px
+
+![mark](http://cdn.cs1024.com/images/20191202/i4Kg29nvF2wJ.png?imageslim)
+
+- **BFC 可以包含浮动的元素（清除浮动）** 
+
+  我们都知道，浮动的元素会脱离普通文档流，来看下下面一个例子 
+
+  ```javascript
+  <div style="border: 1px solid #000;">
+      <div style="width: 100px;height: 100px;background: #eee;float: left;"></div>
+  </div>
+  ```
+
+  ![mark](http://cdn.cs1024.com/images/20191202/LXBbbMVABQ4U.png?imageslim)
+
+   由于容器内元素浮动，脱离了文档流，所以容器只剩下 2px 的边距高度。如果使触发容器的 BFC，那么容器将会包裹着浮动元素。 
+
+  ```javascript
+  <div style="border: 1px solid #000;overflow: hidden">
+      <div style="width: 100px;height: 100px;background: #eee;float: left;"></div>
+  </div>
+  ```
+
+  ![mark](http://cdn.cs1024.com/images/20191202/0HTjVu2ES3XA.png?imageslim)
+
+- **BFC 可以阻止元素被浮动元素覆盖** 
+
+  先来看一个文字环绕效果： 
+
+  ```javascript
+  <div style="height: 100px;width: 100px;float: left;background: lightblue">我是一个左浮动的元素</div>
+  <div style="width: 200px; height: 200px;background: #eee">我是一个没有设置浮动, 
+  也没有触发 BFC 元素, width: 200px; height:200px; background: #eee;</div>
+  ```
+
+  ![image-20191202104448273](F:\project\cs-book\docs\fe\image-20191202104448273.png)
+
+ 这时候其实第二个元素有部分被浮动元素所覆盖，(但是文本信息不会被浮动元素所覆盖) 如果想避免元素被覆盖，在第二个元素中加入 **overflow: hidden**，就会变成： 
+
+![mark](http://cdn.cs1024.com/images/20191202/qlJohY2OriYj.png?imageslim)
+
+ 这个方法可以用来实现两列自适应布局，效果不错，这时候左边的宽度固定，右边的内容自适应宽度 
 
 
 
