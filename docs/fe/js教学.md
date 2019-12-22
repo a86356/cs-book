@@ -1,4 +1,4 @@
-# 编程
+编程
 
 
 
@@ -2194,6 +2194,8 @@ add(1,2) // 等同于 window.add(1,2)
 
 js 还提供了3个特殊的引用类型，Boolean,Number,String类型 ，
 
+js中一切皆对象
+
 基本包装类型：把Boolean，Number，String这些基本类型转为引用类型，引用类型就是对象，这样就可以给他们加方法了。
 
 - Boolean 
@@ -2265,24 +2267,6 @@ String类型的常用方法
 
 
 
-# window对象
-
-window是一个全局对象，在js代码中都可以被访问
-
-
-
-变量是window的属性，函数是window的方法
-
-```javascript
-var a=1;
-console.log(window.a==a)
-function test() {
-    console.log(111)
-}
-test();
-window.test();
-```
-
 # Math 对象
 
 - min和max
@@ -2335,6 +2319,15 @@ var person = {
 //this 表示调用这个方法的对象，这里的this指的是person，因为person.qq是"100000356"
 //所以this.qq也是100000356
 person.show();
+
+
+// 面向过程，
+// 穿衣服，吃饭，
+
+
+// 面向对象
+// 调用穿衣服的方法，调用吃饭的方法
+
 ```
 
 # 创建对象
@@ -2417,7 +2410,7 @@ var person2 = new Person('10000356','www.cs1024.com')
 
 
 
-我们通过new 构造函数创建的方法会有一个construct的属性，指向构造函数
+我们通过new 构造函数创建的对象会有一个construct的属性，指向构造函数
 
 ```javascript
 function Person(qq,web) {
@@ -2559,12 +2552,10 @@ function Person(qq,web) {
 }
 
 var person1 = new Person('100000356','cs1024.com')
-console.log(person1 instanceof Person) //true
 
-person1.__proto__ ={}
-// person的__proto__是不是指向Person.prototype指向的对象所在的原型链上，是就返回true，否则false
-console.log(person1 instanceof Person) //false
-
+console.log(person1)
+console.log(person1.__proto__==Person.prototype);
+console.log(Person.prototype.constructor==Person)
 ```
 
 
@@ -2591,19 +2582,7 @@ var friend2 = new Person();    //实例在这里
 friend2.sayName();  //error
 ```
 
-```javascript
-function Person(){}
 
-    var friend2 = new Person();    //实例在这里
-    Person.prototype = {
-        name : "aty",
-        sayName:function(){
-            alert(this.name);
-        }
-    };
-
-    friend2.sayName();
-```
 
 两个例子都是重写了原型对象，但是实例创建的顺序直接导致了俩个输出的结果。
 
@@ -2629,6 +2608,23 @@ function Person(){}
 
  ![mark](http://cdn.cs1024.com/images/20191212/ViUM4iBNa7a9.png?imageslim)
 
+
+
+```javascript
+function Person(qq,web) {
+    this.qq=qq;
+    this.web=web;
+}
+
+var person1 = new Person('100000356','cs1024.com')
+console.log(person1.__proto__.__proto__);
+console.log(person1.__proto__.__proto__.__proto__);
+```
+
+
+
+
+
 ## 继承
 
 
@@ -2637,7 +2633,17 @@ function Person(){}
 
 实例可以使用原型链上对象的属性和方法
 
+```javascript
+function Person(qq,web) {
+    this.qq=qq;
+    this.web=web;
+}
 
+var person1 = new Person('100000356','cs1024.com')
+console.log(person1.__proto__.__proto__);
+console.log(person1.__proto__.__proto__.__proto__);
+console.log(person1.toString());
+```
 
 # 递归 
 
@@ -2698,6 +2704,8 @@ for (var i=0;i<3;i++){
         }
     }(i)
 }
+
+
 arr[0](); //0
 arr[1](); //1
 arr[2](); //2
@@ -2705,7 +2713,7 @@ arr[2](); //2
 
 # Bom
 
- 浏览器对象模型。将整个浏览器看作是一个对象。js中所有成员变量、成员方法都是浏览器对     象的属性和方法。所有的其他对象都是浏览器对象子对象。 
+ 浏览器对象模型。将整个浏览器看作是一个对象。js中所有成员变量、成员方法都是浏览器对象的属性和方法。
 
 ![mark](http://cdn.cs1024.com/images/20191212/SI3W7MmA0Gp8.png?imageslim)
 
@@ -2718,8 +2726,8 @@ arr[2](); //2
   表示浏览器窗口相对于屏幕左边和上边的距离
 
   ```javascript
-  let leftpos = (typeof window.screenLeft =='number')?window.screenLeft:window.screenX;
-  let toppos = (typeof window.screenTop =='number')?window.screenTop:window.screenY;
+  var leftpos = (typeof window.screenLeft =='number')?window.screenLeft:window.screenX;
+  var toppos = (typeof window.screenTop =='number')?window.screenTop:window.screenY;
   console.log(leftpos,toppos);
   ```
 
@@ -2976,7 +2984,7 @@ var aaa = document.getElementById("aaa");
 
   ```javascript
   var aaa = document.getElementById("aaa");
-  console.log(aaa.nodeType) //DIV  
+  console.log(aaa.nodeName) //DIV  
   ```
 
 - childNodes 表示节点的子节点
@@ -3178,11 +3186,8 @@ function loadCss(url) {
 ## 动态读写css 样式
 
 ```javascript
-.bb{
-    width: 100px;
-}
---------------
-<div id="aaa" >
+
+<div id="aaa" style='width:100px' >
 12
     </div>
 -------------
@@ -3253,6 +3258,23 @@ console.log(getViewport());
 
 获得文档的高度
 
+
+
+.scrollTop:已经滚动过的高度;
+.scrollHeight:整个滚动的高度，从开始到滚动结束滚动过的高度，包括滚动元素自身的高度。
+
+用图来解释：如下图，contentContainer为父元素，content为它的子元素，由于它的高度设置得比父元素高度高，所以父元素出现了滚动条。
+
+假设现在滑动条已划过了一段距离，
+
+
+
+![mark](http://cdn.cs1024.com/images/20191218/yCbDd9HtOzxz.png?imageslim)
+
+
+
+
+
 因为浏览器的兼容性问题，获得文档的宽度和高度用下面的方法
 
 ```javascript
@@ -3261,12 +3283,14 @@ var docWidth = Math.max(document.documentElement.scrollWidth,document.documentEl
 console.log(docWidth,docHeight);
 ```
 
-# 事件
+# js的事件
+
+
 
 ## 点击事件
 
 ```javascript
-var a=document.getElementById("a");
+va r a=document.getElementById("a");
 a.onclick=function () {
     alert(111);
 }
@@ -3274,11 +3298,7 @@ a.onclick=function () {
 
 
 
-## 事件流
-
-我们点击一个按钮的时候，其实是点击了整个网页，事件流动的方向。
-
-## 冒泡（IE）
+## 事件冒泡
 
 冒泡就是从底层的元素开始触发事件，一直向上传递事件，直到最顶部，事件的传递方向是从下向上的。
 
@@ -3301,7 +3321,7 @@ body.onclick = function () {
 
 
 
-## 捕获
+## 事件捕获
 
 另一种处理事件的方式，最上面的节点的事件先执行，再慢慢地到下面去( 一般不会使用)
 
@@ -3492,9 +3512,9 @@ a.onclick=function (event) {
 
 ### 事件的this,target,currentTarget属性
 
-currentTarget 事件处理程序正在处理的那个元素 ( 和this是相等的)
+currentTarget 事件处理程序正在处理的那个元素 ( 和this是相等的)。我们给哪个元素添加事件，currentTarget 就是指向这个元素。
 
-target 事件的实际目标
+target 事件的实际目标，比如我们实际点击的按钮，
 
 - 假如我们写了一个按钮，并且绑定事件，我们点击按钮，那么this,currenttarget,target都是一样的
 
@@ -3513,7 +3533,7 @@ target 事件的实际目标
   }
   ```
 
-- 假如事件是绑定在input的父级元素body上面的
+- 假如事件是绑定在input的父级元素body上面的，就是事件处理函数绑定的元素和实际事件触发元素不用
 
   ```javascript
   <body id="body">
@@ -3524,7 +3544,7 @@ target 事件的实际目标
               var target = event.target
               var currentTarget = event.currentTarget;
               // target 表示实际点击的元素，这里我们实际点击的元素是按钮，所以target 是按钮，和this还有currentTarget不同了
-              console.log(target)
+              console.log(target)  // 我们点击的是button,所以是button
               console.log(currentTarget)
               console.log(this)
           }
@@ -3534,7 +3554,7 @@ target 事件的实际目标
 
   ### 阻止默认行为和冒泡
 
-  组织a标签的默认跳转的行为
+  阻止a标签的默认跳转的行为
 
   ```javascript
   <body>
@@ -3573,103 +3593,72 @@ target 事件的实际目标
   </body>
   ```
 
-  ## IE的事件对象 
-
-  ```javascript
-  var a = document.getElementById("a");
-  var body = document.getElementById("body");
-  a.onclick=function () {
   
-      var event = window.event;
-      window.event.returnValue = false // 阻止默认行为
-      window.event.cancelBubble = true // 阻止冒泡
-      console.log('a 被点击了');
+
+  ### 兼容阻止默认行为的冒泡
+  
+  阻止冒泡
+  
+  ```javascript
+  function stopBubble(e) { 
+  //如果提供了事件对象，则这是一个非IE浏览器 
+  if ( e && e.stopPropagation ) 
+      //因此它支持W3C的stopPropagation()方法 
+      e.stopPropagation(); 
+  else 
+    //否则，我们需要使用IE的方式来取消事件冒泡 
+      window.event.cancelBubble = true; 
+}
+  ```
+  
+  阻止默认行为
+  
+  ```javascript
+  //阻止浏览器的默认行为 
+  function stopDefault( e ) { 
+      //阻止默认浏览器动作(W3C) 
+      if ( e && e.preventDefault ) 
+          e.preventDefault(); 
+      //IE中阻止函数器默认动作的方式 
+      else 
+          window.event.returnValue = false; 
+      return false; 
   }
   ```
-
-  ## 跨浏览器的事件对象
-
-  ```javascript
-  var eventUtils = {
-      addHandle: function(element,eventType,handler){
-              if(element.addEventListener)
-              element.addEventListener(eventType,handler,false);
-              else if(element.attachEvent)
-              element.attachEvent('on'+eventType,handler);
-              else
-              element['on'+type] = handler;
-      },
-      removeHandle: function(element,eventType,handler){
-          if(element.removeEventListener)
-          element.removeEventListener(eventType,handler,false);
-          else if(element.detachEvent)
-          element.detachEvent("on"+eventType,handler);
-          else
-          element["on"+eventType] = null;
-      },
-      getEvent:function(event){
-          return event ? event : window.event;
-      },
-      getTarget:function(event){
-          return event.target || event.srcElement;
-      },
-      preventDefault:function(event){
-          if(event.preventDefault)
-          event.preventDefault();
-          else
-          event.returnValue = false;
-      },
-      stopPropagation:function(event){
-          if(event.stopPropagation)
-          event.stopPropagation();
-          else
-          event.cancelBubble = true;
-      }
-  }
   
   
-  // Use:
-  btn.onclick = function(event){
-      var e = eventUtils.getEvent(event);
-  } 
   
-  ```
-
   
-
+  
   # 事件类型
-
-  ## UI 事件
-
-  页面上的一些事件，UI就是可以理解为设计稿
-
+  
   ### load 事件
-
+  
   当页面全部加载后，（包括所有图像，js文件，css文件等外部资源），就会触发window的onload事件
-
+  
   ```javascript
   window.onload=function () {
       console.log('页面加载好了');
   }
   ```
-
+  
   ### resize 事件
-
+  
   页面大小改变的时候会调用的事件
-
+  
   ```javascript
   window.onresize=function (event) {
       console.log('我被调用了');
   }
   ```
-
+  
   ### scroll事件
-
-  ```javascript
+  
+```javascript
   window.onscroll=function (e) {
-      // 滚动条距离顶部的距离
+    // 滚动条距离顶部的距离
       console.log(document.documentElement.scrollTop)
-  }
+}
   ```
 
   ## 鼠标与滚轮事件
@@ -3681,7 +3670,7 @@ target 事件的实际目标
   a.onclick=function () {
   
   }
-  
+
   ```
 
   ## 键盘事件 
@@ -3689,25 +3678,478 @@ target 事件的实际目标
   - KeyDown：用户摁下摁键时发生
   - KeyPress：用户摁下摁键，并且产生一个字符时发生 （ 完整的 key press 过程分为两个部分：1. 按键被按下；2. 按键被松开 ）
   - KeyUp： 用户释放某一个摁键时触发
-
-  ```javasc
-  <body >
-  <input type="text" id="text">
   
+  ```javasc
+<body >
+  <input type="text" id="text">
+
   <script>
   var text = document.getElementById("text");
   
   
   text.onkeydown=function (ev) {
   
-  console.log(ev.keyCod)
+console.log(ev.keyCod)
   }
-  
+
   </script>
-  </body>
+</body>
   ```
 
-  
+## 事件委托
 
-  
+在页面上添加过多的事件处理程序会造成内存占用过多。因为每个函数都素 对象，对象就会占用内存。
+
+如下面的情况，这里我们就给li绑定了5个事件，占用内存较多
+
+```javascript
+<body >
+    <ul id="ul">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+
+    <script>
+
+        var ul = document.getElementById("ul");
+
+        for (var i=0;i<ul.children.length;i++){
+            var item = ul.children[i];
+            item.onclick=function () {
+                console.log(this.innerHTML)
+            }
+        }
+
+    </script>
+</body>
+```
+
+利用事件委托
+
+事件委托的本质就是冒泡，让事件的处理在父元素上进行，这样只需要绑定一次事件处理程序就可以了
+
+```javascript
+<body >
+    <ul id="ul">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+
+    <script>
+
+        var ul = document.getElementById("ul");
+
+        ul.onclick=function (e) {
+            let target = e.target;
+            console.log(target.nodeName) //nodeName
+
+            console.log(target.innerHTML)
+        }
+
+    </script>
+</body>
+```
+
+利用事件委托，占用更少的内存，代码更易懂。
+
+# JSON
+
+ [JSON](https://baike.baidu.com/item/JSON)([JavaScript](https://baike.baidu.com/item/JavaScript) Object Notation, JS 对象简谱) 是一种轻量级的数据交换格式 
+
+就是一种格式比较轻量级的对象，对象的属性需要用双引号包括，普通对象不用，json经常用在前端和后端的数据交互中，比如后端返回的数据是json格式的数据
+
+```javascript
+var json={
+    "a":"1",
+    "b":2,
+}
+```
+
+http://www.bejson.com/ 
+
+www.taobao.com
+
+
+
+## JSON 序列化
+
+就是把json的数据转成字符串，方便传输
+
+```javascript
+var json={
+    "a":"1",
+    "b":2,
+}
+console.log(JSON.stringify(json));  //{"a":"1","b":2}
+console.log(typeof JSON.stringify(json));  //string
+```
+
+## JSON反序列化
+
+反序列化就是序列化的反过程
+
+```javascript
+var stringjson =JSON.stringify(json)
+console.log(stringjson);  // {"a":"1","b":2}
+console.log(JSON.parse(stringjson)); //{a: "1", b: 2}
+```
+
+
+
+
+
+
+
+## GET 和POST 请求
+
+我们常用的向后端发起请求的方式
+
+- get 就是读取数据，可以在url后面添加参数，后面添加的参数的数据比较小
+- url 就是网址 ，分为http://www.baidu.com:80 ,http叫协议名称，www.baidu.com叫域名，我们通过域名访问网站的，80是端口号，相当于服务器上的一扇门，因为一台电脑上可能运行很多程序，不同的程序占用不同的端口，http服务占用的端口默认是80，所以我们通过80端口就可以找到我们需要的内容，80端口是默认可以不写的。
+
+80是http的默认端口 443是https的默认端口
+
+http和https的不同，就是加了一层加密通道，ssl加密通道，更加安全一些。
+
+
+
+
+
+- post 可以向后端提交数据，可以提交较多的数据
+- 请求测试
+- postman 工具
+- 响应 ：后端返回的东西就称为响应，响应中包含响应数据，响应状态码，200，404
+
+
+
+http 请求头部信息
+
+```javascript
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9
+Connection: keep-alive
+Content-Length: 66
+Content-Type: application/json
+Cookie: cna=VzNJFtFT8XwCAXAMwu799AyD; isg=BHl5FU5mALkgBdwt7Ea5odMwiOVThm04b4kq2puuBaAfIpu0rtc1CKgzpGZxmgVw
+Host: www.weixin1234.top
+Origin: https://www.weixin1234.top
+Referer: https://www.weixin1234.top/
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-origin
+token: 
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36
+```
+
+
+
+http 协议 ，
+
+http 协议有4种方法，get,post ,put,delete,get和post最常用
+
+
+
+get请求是不带请求请求内容的，或者说请求内容为空，他带数据给后端服务器是通过在url后面加参数
+
+post 请求 他是会带请求的数据的 
+
+url 就是请求的地址，我要向哪里获得数据
+
+
+
+请求的类型 ，get（读取数据。从后端服务器读取数据时候的方法），post（前端向后端提交数据时候用的，比如用户注册的表单信息需要提交给后端处理） 最常用的，另外的话，还有put（数据的修改） ，delete （数据的删除）
+
+
+
+## 同步和异步
+
+### 生活中
+
+同步类似就是我说一句话，我一直等着你回话，啥事都不干。就好像面试，你回答了一个问题，等考官回复
+
+异步就是我说一句话，我只管干别的事情了，后来你回了一句话，我再和你聊天。就好像qq聊天
+
+### 网页中
+
+网页中的同步请求的例子，浏览器向后端请求了一些数据，浏览器一直等待着，等后端数据返回，这个时候用户就卡在哪里
+
+异步的话，浏览器只管发起请求，接着就干别的事情了，等请求返回了，我再处理，这个处理的请求返回我们一般用函数处理，这个函数也叫回调函数，通俗讲就是回到之前的地方调用，来处理返回的结果。
+
+
+
+
+
+
+
+# ajax 
+
+在没有ajax之前，前端要把数据传递给后端，用的是form 表单，form表单一提交数据就会刷新页面，对用的体验非常不好。
+
+之后，出现了ajax，ajax是不刷新就可以提交数据
+
+
+
+## 如何发起一个请求
+
+使用ajax我们会用到一个xmlhttprequest的对象，获得这个对象
+
+```javascript
+ var xhr = new XMLHttpRequest();
+```
+
+
+
+我们先回忆一下，一个完整的HTTP请求需要的是：
+
+- 请求的网址、请求方法get/post。
+- 提交请求的内容数据、请求主体等。
+- 接收响应回来的内容。
+
+发送 Ajax 请求的五个步骤：
+
+（1）创建异步对象。即 XMLHttpRequest 对象。
+
+（2）设置请求的参数。包括：请求的方法、请求的url。
+
+（3）发送请求。
+
+（4）注册事件。 onreadystatechange事件，状态改变时就会调用。
+
+如果要在数据完整请求回来的时候才调用，我们需要手动写一些判断的逻辑。
+
+（5）获取返回的数据。
+
+### 发起get请求
+
+ ```javascript
+<input type="button" value="发送get_ajax请求" id='btnAjax'>
+---------
+<body>
+<input type="button" value="发起请求" id="btnAjax">
+    <script>
+        // 绑定点击事件
+        var btn = document.getElementById('btnAjax');
+        btn.onclick = function(){
+            // 发送ajax 请求 需要 五步
+
+            // （1）创建异步对象
+            var ajaxObj = new XMLHttpRequest();
+
+            // （2）设置请求的参数。包括：请求的方法、请求的url。
+            ajaxObj.open('get', 'http://localhost/index.php');
+
+            // （3）发送请求
+            ajaxObj.send();
+
+            //（4）注册事件。 onreadystatechange事件，状态改变时就会调用。
+            //如果要在数据完整请求回来的时候才调用，我们需要手动写一些判断的逻辑。
+            ajaxObj.onreadystatechange = function () {
+                // 为了保证 数据 完整返回，我们一般会判断 两个值
+                if (ajaxObj.readyState == 4 && ajaxObj.status == 200) {
+                    // 如果能够进到这个判断 说明 数据 完美的回来了,并且请求的页面是存在的
+                    // 5.在注册的事件中 获取 返回的 内容 并修改页面的显示
+                    console.log('数据返回成功');
+                    // 数据是保存在 异步对象的 属性中
+                    console.log(ajaxObj.responseText);
+                }
+            }
+        }
+    </script>
+</body>
+ ```
+
+| 属性               | 描述                                                         |
+| :----------------- | :----------------------------------------------------------- |
+| onreadystatechange | 存储函数（或函数名），每当 readyState 属性改变时，就会调用该函数。 |
+| readyState         | 存有 XMLHttpRequest 的状态。从 0 到 4 发生变化。0: 请求未初始化1: 服务器连接已建立2: 请求已接收3: 请求处理中4: 请求已完成，且响应已就绪 |
+| status             | 200: "OK"404: 未找到页面                                     |
+
+### 发起post请求
+
+```javascript
+
+// 异步对象
+var xhr = new XMLHttpRequest();
+
+// 设置属性
+xhr.open('post', 'http://localhost/index2.php');
+
+// 如果想要使用post提交数据,必须添加此行
+xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+// 将数据通过send方法传递
+xhr.send('name=fox&age=18');
+
+// 发送并接受返回值
+xhr.onreadystatechange = function () {
+    // 这步为判断服务器是否正确响应
+    if (xhr.readyState == 4 && xhr.status == 200) {
+        alert(xhr.responseText);
+    }
+};
+```
+
+## 跨域问题
+
+跨域：指的是浏览器不能执行其他网站的脚本。它是由浏览器的同源策略造成的，是浏览器对javascript施加的安全限制。
+
+例如：a页面想获取b页面资源，如果a、b页面的协议、域名、端口、子域名不同，所进行的访问行动都是跨域的，而浏览器为了安全问题一般都限制了跨域访问，也就是不允许跨域请求资源。注意：跨域限制访问，其实是**浏览器的限制**。理解这一点很重要！！！
+
+同源策略：是指协议，域名，端口都要相同，其中有一个不同都会产生跨域；
+
+![mark](http://cdn.cs1024.com/images/20191214/e12FV7qSI252.png?imageslim)
+
+#### 跨域访问示例
+
+假设有两个网站，A网站部署在：http://localhost:81 即本地ip端口81上；B网站部署在：http://localhost:82 即本地ip端口82上。现在A网站的页面想去访问B网站的信息，就回出现跨域
+
+#### 如何解决跨域
+
+##### 跨域资源共享（CORS）
+
+`CORS（Cross-Origin Resource Sharing`）跨域资源共享，定义了必须在访问跨域资源时，浏览器与服务器应该如何沟通。`CORS`背后的基本思想就是使用自定义的HTTP头部让浏览器与服务器进行沟通，从而决定请求或响应是应该成功还是失败。
+
+服务器端对于`CORS`的支持，主要就是通过设置`Access-Control-Allow-Origin`来进行的。如果浏览器检测到相应的设置，就可以允许Ajax进行跨域的访问。
+
+只需要在后台中加上响应头来允许域请求！在被请求的Response header中加入以下设置，就可以实现跨域访问了！
+
+php 解决跨域的方法，一般让后端做较方便
+
+```javascript
+header('Access-Control-Allow-Origin: *');
+```
+
+
+
+##### 通过jsonp跨域
+
+ JSONP是JSON with Padding（填充式json）的简写，是应用JSON的一种新方法，只不过是被包含在函数调用中的JSON，例如： 
+
+```javascript
+callback({"name","trigkit4"});
+```
+
+JSONP由两部分组成：**回调函数**和**数据**。回调函数是当响应到来时应该在页面中调用的函数，而数据就是传入回调函数中的JSON数据。
+
+**JSONP的原理**：通过script标签引入一个js文件，这个js文件载入成功后会执行我们在url参数中指定的函数，并且会把我们需要的json数据作为参数传入。所以jsonp是需要服务器端的页面进行相应的配合的。（即用[javascript](http://lib.csdn.net/base/javascript)动态加载一个script文件，同时定义一个callback函数给script执行而已。）
+
+在js中，我们直接用`XMLHttpRequest`请求不同域上的数据时，是不可以的。但是，在页面上引入不同域上的js脚本文件却是可以的，jsonp正是利用这个特性来实现的。 例如：
+
+有个a.html页面，它里面的代码需要利用ajax获取一个不同域上的json数据，假设这个json数据地址是http://example.com/data.php,那么a.html中的代码就可以这样：
+
+```javascript
+<script type="text/javascript">
+    function dosomething(jsondata){
+        //处理获得的json数据
+    }
+</script>
+<script src="http://example.com/data.php?callback=dosomething"></script> 
+```
+
+ js文件载入成功后会**执行**我们在url参数中**指定的函数**，并且会把我们需要的json数据作为参数传入。所以jsonp是需要服务器端的页面进行相应的配合的。 
+
+![mark](http://cdn.cs1024.com/images/20191214/jxk6XJ8hmVkB.png?imageslim)
+
+**JSONP的优缺点**
+
+JSONP的优点是：它不像`XMLHttpRequest`对象实现的Ajax请求那样受到同源策略的限制；它的兼容性更好，在更加古老的浏览器中都可以运行，不需要XMLHttpRequest或ActiveX的支持；并且在请求完毕后可以通过调用callback的方式回传结果。
+
+JSONP的缺点则是：它只支持GET请求而不支持POST等其它类型的HTTP请求；它只支持跨域HTTP请求这种情况，不能解决不同域的两个页面之间如何进行`JavaScript`调用的问题。
+
+**CORS和JSONP对比**
+
+CORS与JSONP相比，无疑更为先进、方便和可靠。
+
+```
+1、 JSONP只能实现GET请求，而CORS支持所有类型的HTTP请求。
+2、 使用CORS，开发者可以使用普通的XMLHttpRequest发起请求和获得数据，比起JSONP有更好的错误处理。
+3、 JSONP主要被老的浏览器支持，它们往往不支持CORS，而绝大多数现代浏览器都已经支持了CORS）。
+```
+
+##### nginx 代理实现跨域
+
+之后讲vue，react的时候会讲，现在都用后端处理跨域先。
+
+
+
+
+
+
+
+# 本地存储
+
+本地存储就是在浏览器上存储数据
+
+## 应用场景
+
+我们向后端服务器请求，我要我的用户的数据，我们需要带上自己的标志，就比如我们的身份证一样，在编程中，一般这个值叫token，我们把他存储在浏览器中，每次请求都带上token标志，那服务器就根据这个token来判断用户是谁了。
+
+
+
+![mark](http://cdn.cs1024.com/images/20191214/ImPinjoID1XB.png?imageslim)
+
+## 存储方法
+
+- cookie
+- localStorage
+- sessionStorage
+
+### cookie
+
+ Cookie的大小限制在4KB左右。对于复杂的存储需求来说是不够用的。 
+
+ JavaScript可以使用document.Cookie属性来创建、取读、及删除cookie。 
+
+```javascript
+Document.cookie=”username=John Doe”;
+```
+
+### localstorage
+
+ localStorage 用于长久保存整个网站的数据，保存的数据没有过期时间，直到手动去除。 
+
+### 存储对象属性
+
+| 属性   | 描述                           |
+| :----- | :----------------------------- |
+| length | 返回存储对象中包含多少条数据。 |
+
+### 存储对象方法
+
+| 方法                        | 描述                                               |
+| :-------------------------- | :------------------------------------------------- |
+| key(*n*)                    | 返回存储对象中第 *n* 个键的名称                    |
+| getItem(*keyname*)          | 返回指定键的值                                     |
+| setItem(*keyname*, *value*) | 添加键和值，如果对应的值存在，则更新该键对应的值。 |
+| removeItem(*keyname*)       | 移除键                                             |
+| clear()                     | 清除存储对象中所有的键                             |
+
+### Web 存储 API
+
+| 属性                                                         | 描述                                                         |
+| :----------------------------------------------------------- | :----------------------------------------------------------- |
+| [window.localStorage](https://www.runoob.com/jsref/prop-win-localstorage.html) | 在浏览器中存储 key/value 对。没有过期时间。                  |
+| [window.sessionStorage](https://www.runoob.com/jsref/prop-win-sessionstorage.html) | 在浏览器中存储 key/value 对。 在关闭窗口或标签页之后将会删除这些数据。 |
+
+### sessionStorage
+
+sessionStorage 用于临时保存同一窗口(或标签页)的数据，在关闭窗口或标签页之后将会删除这些数据。 
+
+方法和属性同上
+
+
+
+现在token 一般存储在localstorage或者cookie中。因为sessionstorage关闭浏览器就没有了，用户又要重新登录了。
+
+
+
+
+
+
 
