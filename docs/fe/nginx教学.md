@@ -414,7 +414,43 @@ location ~ /baidu/{
 
 访问 ip:80端口，一会转发到tomcat的8080端口上，一会儿转发到tomcat的8081端口上面
 
+
+
+tomcat的安装
+
+https://segmentfault.com/a/1190000018773811
+
+如何在linux 开启多个多个tomcat 服务
+
+https://www.jianshu.com/p/1b822c504acd
+
+
+
 ## 步骤
+
+先安装并启动2个tomcat的服务
+
+修改tomcat的端口
+
+```javascript
+cd usr/local/tomcat/tomcat8/conf
+vi server.xml
+修改完后保存，重启tomcat服务
+```
+
+启动tomcat
+
+```nginx
+./startup.sh
+```
+
+关闭tomcat
+
+```ng
+./shutdown.sh
+```
+
+
 
 先启动2个tomcat的服务，一个监听8080端口，一个监听8081端口
 
@@ -476,25 +512,35 @@ upstream cs1024server{
 
 见上文
 
-## 过期时间 expires 
-
-expires 可以给资源设置一个过期时间，设置浏览器缓存的 ，比如设置成30d，表示30天内访问这个url地址，发送一个请求，对比服务器该文件最后更新时间没有变化，则不会从服务器抓取，返回304，如果有修改，那么重新从服务器下载，返回状态码200.   expires适合不经常变得的资源。如图片
-
 ## 例子
 
 新建个data目录，里面由www目录和images目录，www里面放index.html。images里面放一张图片。
 
 ```nginx
 location /www/ {
-    root /data/  # 到目录 /data/下面找www目录
-        index index.html index.htm
+    root /data/;  # 到目录 /data/下面找www目录
+    index index.html index.htm;
 }
 location /images/ {
-    root /data/  # 到目录 /data/下面找www目录
+    root /data/;  # 到目录 /data/下面找images目录
         # expires 1d;  # 过期时间1天
         autoindex on; # Ngin允许列出整个目录的
 }
 ```
+
+## 过期时间 expires 
+
+expires 可以给资源设置一个过期时间，设置浏览器缓存的 ，比如设置成30d，表示30天内访问这个url地址，发送一个请求，对比服务器该文件最后更新时间没有变化，则不会从服务器抓取，返回304，如果有修改，那么重新从服务器下载，返回状态码200.   expires适合不经常变得的资源。如图片
+
+
+
+
+
+
+
+
+
+
 
 # nginx 配置高可用集群
 
